@@ -212,7 +212,7 @@ export default {
                     styleLink.setAttribute('rel', 'stylesheet');
                     styleLink.setAttribute('type', 'text/css');
                     styleLink.setAttribute('id', id);
-                    styleLink.setAttribute('href', id + '.css');
+                    styleLink.setAttribute('href', 'css/'+id + '.css');
                     document
                         .getElementsByTagName('head')[0]
                         .appendChild(styleLink);
