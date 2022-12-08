@@ -1,0 +1,52 @@
+@font-face {
+    font-family: 'icomoon';
+    src:  url('../fonts/icomoon/icomoon.eot?kue1yj');
+    src:  url('../fonts/icomoon/icomoon.eot?kue1yj#iefix') format('embedded-opentype'),
+      url('../fonts/icomoon/icomoon.ttf?kue1yj') format('truetype'),
+      url('../fonts/icomoon/icomoon.woff?kue1yj') format('woff'),
+      url('../fonts/icomoon/icomoon.svg?kue1yj#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+  }
+  
+  [class^="icon-sxa-"], [class*=" icon-sxa-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    speak: never;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+  
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  .icon-sxa-accessibility:before {
+    content: "\e900";
+  }
+  .icon-sxa-wheelchair:before {
+    content: "\e906";
+  }
+  .icon-sxa-black:before {
+    content: "\e933";
+  }
+  .icon-sxa-black-white:before {
+    content: "\e934";
+  }
+  .icon-sxa-flash:before {
+    content: "\e935";
+  }
+  .icon-sxa-font:before {
+    content: "\e936";
+  }
+  .icon-sxa-link:before {
+    content: "\e937";
+  }
+  .icon-sxa-white:before {
+    content: "\e938";
+  }
+  

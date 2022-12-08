@@ -1,0 +1,40 @@
+.sxaBtn {
+    padding:8px;
+    border:none;
+    outline:none!important;
+    background: none;
+    cursor: pointer;
+    display:flex;
+    align-items: center;
+    gap:10px;
+    font-size:inherit;
+    font-family:inherit;
+    font-weight: normal;
+    div {       
+        &.text-md {
+            font-size:1.5em;
+        }
+        &.text-lg {
+            font-size:2em;            
+        }
+    }
+    &.is-active {
+        background: $c-red!important;
+        color:#fff;
+    }
+    &.sxaBtn--block {
+        width:100%;
+        i {
+            font-size:28px;
+        }
+    }
+    &.sxaBtn--sm {
+        font-size:0.8em;
+    }
+    &.sxaBtn--link {
+        text-decoration: underline;
+        &:hover {
+           text-decoration: none;
+        }
+    }
+}

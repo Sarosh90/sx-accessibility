@@ -1,26 +1,46 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div>
+        <div style="text-align: right">
+            <Accessibility anchor="bottom-right"></Accessibility>
+        </div>
+
+        <h1>Lorem ipsum dolor sit amet.</h1>
+        <h2>Lorem, ipsum dolor.</h2>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis
+            odit dolorum aperiam minus iure iste, odio ad accusantium eveniet,
+            consequuntur explicabo, nisi inventore incidunt deleniti. Ex dolore
+            aliquid dolor voluptatibus!
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis
+            odit dolorum aperiam minus iure iste, odio ad accusantium eveniet,
+            consequuntur explicabo, nisi inventore incidunt deleniti. Ex dolore
+            aliquid dolor voluptatibus!
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis
+            odit dolorum aperiam minus iure iste, odio ad accusantium eveniet,
+            consequuntur explicabo, nisi inventore incidunt deleniti. Ex dolore
+            aliquid dolor voluptatibus!
+        </p>
+
+        <nav>
+            <ul>
+                <li><a href="#">Item 1</a></li>
+                <li><a href="#">Item 2</a></li>
+                <li><a href="#">Item 3</a></li>
+            </ul>
+        </nav>
+    </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import Accessibility from './components/Accessibility';
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+    name: 'App',
+    components: {
+        Accessibility,
+    },
+};
 </script>
-
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
