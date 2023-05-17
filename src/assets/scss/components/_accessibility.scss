@@ -1,13 +1,12 @@
-body {
-    font-family: "Comic Sans MS", "Comic Sans", cursive;
+html {
     &.sx-accessibility--underline-links {
         a {
             text-decoration: underline !important;
         }
     }
     &.sx-accessibility--readable-font {
-        *:not([class^=icon-]),
-        *:not([class*=icon-]) {
+        *:not([class^='icon-']),
+        *:not([class*='icon-']) {
             font-family: Arial, Helvetica, sans-serif !important;
         }
     }
@@ -16,10 +15,6 @@ body {
             animation: none !important;
             transition: none !important;
         }
-    }
-    &.sx-accessibility--contrasts {
-    }
-    &.sx-accessibility--contrasts-white {
     }
     &.sx-accessibility--black-white {
         filter: grayscale(100%);
@@ -30,31 +25,14 @@ body {
         -o-filter: grayscale(100%);
         filter: gray;
     }
-    &.sx-accessibility--font-md {
-        * {
-            font-size:1.05em!important;
-        }
-    }
-    &.sx-accessibility--font-lg {
-        font-size:1.05em!important;
-    }
-    //Tmp.
-    a {
-        text-decoration: none;
-    }
 }
 
 .sxAccessibility {
-
     display: inline-flex;
     font-family: inherit;
     font-size: 16px;
     position: relative;
     &__trigger {
-        
-        background: #f5f5f5;
-        border:solid 1px #000;
-
         .sxaBtn {
             i {
                 font-size: 20px;
@@ -62,23 +40,23 @@ body {
         }
     }
     &__close {
-        padding:20px;
+        padding: 20px;
         text-align: center;
-        font-weight:bold;
+        font-weight: bold;
         background: $c-secondary;
-        width:100%;
-        border:none;
-        outline:none;
+        width: 100%;
+        border: none;
+        outline: none;
         cursor: pointer;
-        width:calc(100% + 20px);
-        margin:-10px 0 10px -10px;
+        width: calc(100% + 20px);
+        margin: -10px 0 10px -10px;
         text-transform: uppercase;
-        font-size:14px;
+        font-size: 14px;
     }
     &__content {
         padding: 10px;
         width: 300px;
-        border-radius: 8px;
+        overflow: hidden;
         background: #fff;
         box-shadow: 0px 0px 5px rgba($c-primary, 0.25);
         position: absolute;
@@ -93,13 +71,25 @@ body {
             li {
                 border-bottom: solid 1px $c-primary;
                 > div {
-                    display:flex;
+                    display: flex;
                 }
             }
             + * {
                 margin-top: 10px;
             }
         }
+        @media (max-width:480px) {
+            position: fixed;
+            left:0;
+            right:auto;
+            top:0;
+            bottom:auto;
+            z-index:900;
+            overflow: auto;
+            height:100%;
+            width:100%;
+            margin:0;
+        }        
     }
     &.sxAccessibility--visible {
         .sxAccessibility__content {

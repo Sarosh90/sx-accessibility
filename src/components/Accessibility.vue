@@ -13,11 +13,11 @@
             ></template>
             <template v-else
                 ><button class="sxaBtn">
-                    <i class="icon-sxa-wheelchair"></i></button
+                    <i class="icon-sxa-accessibility"></i></button
             ></template>
         </div>
         <div class="sxAccessibility__content">
-            <button class="sxAccessibility__close" :style="[color ? {'backgroundColor':color} : '']" @click="toggle">Zapri</button>
+            <button class="sxAccessibility__close" :style="[backgroundcolor ? {'backgroundColor':backgroundcolor} : '', color ? {'color':color} : '']" @click="toggle">Zapri</button>
             <ul v-if="accessibilityList">
                 <li v-for="(item, index) in accessibilityList" :key="index">
                     <button
@@ -57,7 +57,7 @@
     </div>
 </template>
 <script>
-export default {
+export const Accessibility = {
     props: {
         position: {
             type: String,
@@ -68,6 +68,10 @@ export default {
             default: '', //top-left, top-right, bottom-left, bottom-right; default: top-right
         },
         color: {
+            type: String,
+            default:''
+        },
+        backgroundcolor: {
             type: String,
             default:''
         }
@@ -148,7 +152,7 @@ export default {
                 class: 'sx-accessibility--font',
                 spanClass: 'text-lg',
                 active: false,
-                cookieValue: '1.4',
+                cookieValue: '1.3',
             },
         ],
     }),
@@ -180,16 +184,13 @@ export default {
         },
         //Get Accessibilities
         getAccessibilities() {
-            let body = document.body,
-                externalCssA = ['sxa-contrast', 'sxa-contrast-white'];
+            let body = document.documentElement;
             this.accessibilityList.map((item) => {
                 if (this.getCookie(item.id)) {
                     item.active = true;
                     body.classList.add(item.class);
-                    if (externalCssA.includes(item.id)) this.toggleAccessibilityCss(item.id, true);
                 } else {
                     if (body.classList.contains(item.class)) body.classList.remove(item.class);
-                    if (externalCssA.includes(item.id)) this.toggleAccessibilityCss(item.id, false);
                 }
             });
         },
@@ -201,25 +202,6 @@ export default {
                 });
                 if (parseFloat(sxaFontCookie) > 1) {
                     this.changeTextSize(sxaFontCookie);
-                }
-            }
-        },
-        //Append Accessibility Css
-        toggleAccessibilityCss(id, append) {
-            if (append) {
-                if (!document.getElementById(id)) {
-                    let styleLink = document.createElement('link');
-                    styleLink.setAttribute('rel', 'stylesheet');
-                    styleLink.setAttribute('type', 'text/css');
-                    styleLink.setAttribute('id', id);
-                    styleLink.setAttribute('href', 'css/'+id + '.css');
-                    document
-                        .getElementsByTagName('head')[0]
-                        .appendChild(styleLink);
-                }
-            } else {
-                if (document.getElementById(id)) {
-                    document.getElementById(id).remove();
                 }
             }
         },
@@ -273,4 +255,5 @@ export default {
         },
     },
 };
+export default Accessibility;
 </script>

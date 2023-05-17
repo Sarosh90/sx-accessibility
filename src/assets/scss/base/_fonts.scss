@@ -1,5 +1,5 @@
 @font-face {
-    font-family: 'icomoon';
+    font-family: 'icomoon-accessibility';
     src:  url('../fonts/icomoon/icomoon.eot?kue1yj');
     src:  url('../fonts/icomoon/icomoon.eot?kue1yj#iefix') format('embedded-opentype'),
       url('../fonts/icomoon/icomoon.ttf?kue1yj') format('truetype'),
@@ -12,7 +12,7 @@
   
   [class^="icon-sxa-"], [class*=" icon-sxa-"] {
     /* use !important to prevent issues with browser extensions that change fonts */
-    font-family: 'icomoon' !important;
+    font-family: 'icomoon-accessibility' !important;
     speak: never;
     font-style: normal;
     font-weight: normal;
