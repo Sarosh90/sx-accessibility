@@ -17,7 +17,7 @@
             ></template>
         </div>
         <div class="sxAccessibility__content">
-            <button class="sxAccessibility__close" :style="[backgroundcolor ? {'backgroundColor':backgroundcolor} : '', color ? {'color':color} : '']" @click="toggle">Zapri</button>
+            <button class="sxAccessibility__close" :style="[backgroundcolor ? {'backgroundColor':backgroundcolor} : '', color ? {'color':color} : '']" @click="toggle">{{ translations[locale].close }}</button>
             <ul v-if="accessibilityList">
                 <li v-for="(item, index) in accessibilityList" :key="index">
                     <button
@@ -51,7 +51,7 @@
                 class="sxaBtn sxaBtn--sm sxaBtn--link"
                 @click="removeAllCookies"
             >
-                <span>Ponastavi nastavitve dostopnosti</span>
+                <span>{{ translations[locale].reset }}</span>
             </button>
         </div>
     </div>
@@ -74,61 +74,15 @@ export const Accessibility = {
         backgroundcolor: {
             type: String,
             default:''
+        },
+        locale: {
+            type: String,
+            default: 'sl' //sl, en
         }
     },
     data: () => ({
       cookieDuration:30,
         accessibilityVisible: false,
-        accessibilityList: [
-            {
-                id: 'sxa-black-white',
-                icon: 'icon-sxa-black-white',
-                title: 'Črno/belo',
-                class: 'sx-accessibility--black-white',
-                active: false,
-                cookieValue: true,
-            },
-            {
-                id: 'sxa-contrast',
-                icon: 'icon-sxa-black',
-                title: 'Temen kontrast',
-                class: 'sx-accessibility--contrast',
-                active: false,
-                cookieValue: true,
-            },
-            {
-                id: 'sxa-contrast-white',
-                icon: 'icon-sxa-white',
-                title: 'Svetel kontrast',
-                class: 'sx-accessibility--contrast-white',
-                active: false,
-                cookieValue: true,
-            },
-            {
-                id: 'sxa-animation-off',
-                icon: 'icon-sxa-flash',
-                title: 'Ustavi premike/animacije',
-                class: 'sx-accessibility--animation-off',
-                active: false,
-                cookieValue: true,
-            },
-            {
-                id: 'sxa-readable-font',
-                icon: 'icon-sxa-font',
-                title: 'Berljiva pisava',
-                class: 'sx-accessibility--readable-font',
-                active: false,
-                cookieValue: true,
-            },
-            {
-                id: 'sxa-underline-links',
-                icon: 'icon-sxa-link',
-                title: 'Podčrtaj povezave',
-                class: 'sx-accessibility--underline-links',
-                active: false,
-                cookieValue: true,
-            },
-        ],
         accessibilityFontList: [
             {
                 id: 'sxa-font',
@@ -155,7 +109,84 @@ export const Accessibility = {
                 cookieValue: '1.3',
             },
         ],
+        translations: {
+            sl: {
+                close: 'Zapri',
+                black_white: 'Črno/belo',
+                dark_contrast: 'Temen kontrast',
+                light_contrast: 'Svetel kontrast',
+                animation_stop: 'Ustavi premike/animacije',
+                readable_font: 'Berljiva pisava',
+                underline_links: 'Podčrtaj povezave',
+                reset: 'Ponastavi nastavitve dostopnosti'
+
+            },
+            en: {
+                close: 'Close',
+                black_white: 'Black & White',
+                dark_contrast: 'Dark Contasts',
+                light_contrast: 'Light Contasts',
+                animation_stop: 'Stop Movement',
+                readable_font: 'Readable Font',
+                underline_links: 'Underline Links',
+                reset: 'Reset Accessibility'
+            }
+        }
     }),
+    computed: {
+        accessibilityList() {
+            return [
+                {
+                    id: 'sxa-black-white',
+                    icon: 'icon-sxa-black-white',
+                    title: this.translations[this.locale].black_white,
+                    class: 'sx-accessibility--black-white',
+                    active: false,
+                    cookieValue: true,
+                },
+                {
+                    id: 'sxa-contrast',
+                    icon: 'icon-sxa-black',
+                    title: this.translations[this.locale].dark_contrast,
+                    class: 'sx-accessibility--contrast',
+                    active: false,
+                    cookieValue: true,
+                },
+                {
+                    id: 'sxa-contrast-white',
+                    icon: 'icon-sxa-white',
+                    title: this.translations[this.locale].light_contrast,
+                    class: 'sx-accessibility--contrast-white',
+                    active: false,
+                    cookieValue: true,
+                },
+                {
+                    id: 'sxa-animation-off',
+                    icon: 'icon-sxa-flash',
+                    title: this.translations[this.locale].animation_stop,
+                    class: 'sx-accessibility--animation-off',
+                    active: false,
+                    cookieValue: true,
+                },
+                {
+                    id: 'sxa-readable-font',
+                    icon: 'icon-sxa-font',
+                    title: this.translations[this.locale].readable_font,
+                    class: 'sx-accessibility--readable-font',
+                    active: false,
+                    cookieValue: true,
+                },
+                {
+                    id: 'sxa-underline-links',
+                    icon: 'icon-sxa-link',
+                    title: this.translations[this.locale].underline_links,
+                    class: 'sx-accessibility--underline-links',
+                    active: false,
+                    cookieValue: true,
+                },
+            ]
+        }
+    },
     mounted() {
         //Check If Accessibility Cookies Are Already Set
         this.getAccessibilities();
