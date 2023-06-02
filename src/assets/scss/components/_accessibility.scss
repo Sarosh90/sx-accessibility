@@ -5,7 +5,6 @@ html {
         }
     }
     &.sx-accessibility--readable-font {
-        *:not([class^='icon-']),
         *:not([class*='icon-']) {
             font-family: Arial, Helvetica, sans-serif !important;
         }
