@@ -5,8 +5,7 @@ html {
         }
     }
     &.sx-accessibility--readable-font {
-        *:not([class^='icon-']),
-        *:not([class*='icon-']) {
+        *:not([class*='icon-']):not([class*='icon_']):not([class*='pi']){
             font-family: Arial, Helvetica, sans-serif !important;
         }
     }
